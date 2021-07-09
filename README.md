@@ -2,8 +2,8 @@
 
 ## Learning Goals
 
-- Use common enumerable methods like `each`, `map`, `find`, and `filter` with
-  arrays and hashes
+- Use common enumerable methods like `#each`, `#map`, `#find`, and `#filter`
+  with arrays and hashes
 
 ## Introduction
 
@@ -11,7 +11,7 @@ Let's review some common enumerable methods that you've already encountered in
 JavaScript, and see how to write them in Ruby. Follow along with the examples
 in IRB to get some practice with each of these methods.
 
-### `each`
+### `#each`
 
 **Use Case**: When you want to access each element of the array, but don't care
 about returning a new array.
@@ -34,7 +34,7 @@ newArray;
 // => ["this", "is", "JavaScript"]
 ```
 
-Ruby's `each` method gives similar functionality:
+Ruby's `#each` method gives similar functionality:
 
 ```rb
 new_array = ["this", "is", "Ruby"].each do |str|
@@ -48,13 +48,13 @@ new_array
 # => ["this", "is", "Ruby"]
 ```
 
-### `map` / `collect`
+### `#map` / `#collect`
 
 **Use Case**: When you want to access every element of an array, calculate a new
 value, and return a new array of those new values with the same length as the
 original array.
 
-You've seen some examples with `map` in the previous lesson. Here are a few
+You've seen some examples with `#map` in the previous lesson. Here are a few
 other ways you might use this method with arrays:
 
 ```rb
@@ -69,8 +69,8 @@ end
 ```
 
 Many of Ruby's enumerable methods have **aliases** to make them easier to
-remember for programmers coming from other language. The alias for `map` is
-`collect`, which works exactly the same as `map` under the hood:
+remember for programmers coming from other language. The alias for `#map` is
+`#collect`, which works exactly the same as `#map` under the hood:
 
 ```rb
 [1, 2, 3].collect { |num| num * 2 }
@@ -82,14 +82,14 @@ that uses different method names than you may be expecting to perform the same
 tasks. Our advice: stick to using the same method names you're familiar with
 from JavaScript!
 
-### `filter` / `select` / `find_all`
+### `#filter` / `#select` / `#find_all`
 
 **Use Case**: When you want to access every element of an array, check if it
 matches some criteria, and return a new array of all the values that match.
 
-Ruby's `filter` method (also aliased as `select` and `find_all`) gives you the
-same functionality as `filter` in JavaScript. For example, here's how you could
-filter an array of numbers in JavaScript and return only the even values:
+Ruby's `#filter` method (also aliased as `#select` and `#find_all`) gives you
+the same functionality as `#filter` in JavaScript. For example, here's how you
+could filter an array of numbers in JavaScript and return only the even values:
 
 ```js
 [1, 2, 3, 4, 5].filter((num) => num % 2 === 0);
@@ -103,7 +103,7 @@ Here's the equivalent syntax in Ruby:
 # => [2, 4]
 ```
 
-Just like with JavaScript, Ruby's `filter` method won't let you perform any
+Just like with JavaScript, Ruby's `#filter` method won't let you perform any
 transformation of elements; it will only return the original elements based on
 whether a truthy or falsy value is returned from the block. For example, let's
 say you're working on a method to filter out all the `nil` values from an array
@@ -120,9 +120,9 @@ end
 # => ["give", "it", "your", "best", "shot"]
 ```
 
-The reason this doesn't produce an array of capitalized words is that `filter`
+The reason this doesn't produce an array of capitalized words is that `#filter`
 will only return elements from the original array; it won't produce any new
-values. To achieve the desired effect, you'd need to `filter`, then `map`:
+values. To achieve the desired effect, you'd need to `#filter`, then `#map`:
 
 ```rb
 words = ["give", "it", nil, "your", nil, "best", "shot"]
@@ -149,14 +149,14 @@ Or if you really want to impress your friends:
 words.compact.map(&:capitalize)
 ```
 
-### `find` / `detect`
+### `#find` / `#detect`
 
 **Use Case**: When you want to access every element of an array, check if it
 matches some criteria, and return **the first element** that matches.
 
-The `find` method (and its alias method `detect`) work much like the `filter`
-method. The key difference is that while `filter` will return an array of all
-the elements that match some criteria, `find` will only return the first one:
+The `#find` method (and its alias method `#detect`) work much like the `#filter`
+method. The key difference is that while `#filter` will return an array of all
+the elements that match some criteria, `#find` will only return the first one:
 
 ```rb
 [1, 2, 3, 4, 5].find { |num| num.even? }
@@ -174,13 +174,13 @@ end
 
 It's very handy for picking one element out of an array.
 
-### `sort`
+### `#sort`
 
 **Use case**: return a new array where all the elements have been sorted based
 on some criteria.
 
-Ruby's `sort` method can be called a couple different ways. If you have a simple
-array of strings or numbers, for example, you can call `sort` without a block,
+Ruby's `#sort` method can be called a couple different ways. If you have a simple
+array of strings or numbers, for example, you can call `#sort` without a block,
 and Ruby will do its best to sort the elements:
 
 ```rb
@@ -190,7 +190,7 @@ sorted_nums
 # => [1, 3, 5]
 ```
 
-Note that unlike JavaScript, `sort` will not alter the original array:
+Note that unlike JavaScript, `#sort` will not alter the original array:
 
 ```rb
 nums
@@ -232,7 +232,7 @@ The spaceship operator, also called the **combined comparison operator**, return
 - `1` if the first operand is greater than the second.
 
 So, instead of utilizing `if` and `elsif` logic like we did above, we can simply
-call `.sort` with the following code:
+call `#sort` with the following code:
 
 ```rb
 users.sort do |user1, user2|
@@ -241,8 +241,8 @@ end
 # => [{:name=>"Cara", :phone=>"555-555-5556"}, {:name=>"Duane", :phone=>"555-555-5555"}, {:name=>...
 ```
 
-Ruby also provides a `sort_by` method, which instead of passing two elements to
-the block and requiring you to write the comparison logic, just passes one
+Ruby also provides a `#sort_by` method, which, instead of passing two elements
+to the block and requiring you to write the comparison logic, just passes one
 element to the block:
 
 ```rb
