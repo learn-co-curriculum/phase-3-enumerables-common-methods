@@ -30,8 +30,7 @@ const newArray = ["this", "is", "JavaScript"].forEach((str) => {
 // => "IS"
 // => "JAVASCRIPT"
 
-newArray;
-// => ["this", "is", "JavaScript"]
+newArray; // undefined
 ```
 
 Ruby's `#each` method gives similar functionality:
