@@ -245,8 +245,8 @@ to the block and requiring you to write the comparison logic, just passes one
 element to the block:
 
 ```rb
-users.sort_by do |user1|
-  user1[:name]
+users.sort_by do |user|
+  user[:name]
 end
 # => [{:name=>"Cara", :phone=>"555-555-5556"}, {:name=>"Duane", :phone=>"555-555-5555"}, {:name=>...
 ```
