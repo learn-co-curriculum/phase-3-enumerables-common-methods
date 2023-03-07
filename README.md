@@ -68,7 +68,7 @@ end
 ```
 
 Many of Ruby's enumerable methods have **aliases** to make them easier to
-remember for programmers coming from other language. The alias for `#map` is
+remember for programmers coming from other languages. The alias for `#map` is
 `#collect`, which works exactly the same as `#map` under the hood:
 
 ```rb
